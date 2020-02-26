@@ -48,7 +48,7 @@ public class BudgetPlannerImporter {
         return account;
     }
 
-    private Account createAccount(String[] line) {
+    public Account createAccount(String[] line) {
         //Account name,Account IBAN,Counteraccount IBAN,Transaction date,Amount,Currency,Detail
         Account account = new Account();
         account.setName(line[0]);
@@ -56,7 +56,7 @@ public class BudgetPlannerImporter {
         return account;
     }
 
-    private Payment createPayment(String[] line) {
+    public Payment createPayment(String[] line) {
         //Account name,Account IBAN,Counteraccount IBAN,Transaction date,Amount,Currency,Detail
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
         float account = Float.parseFloat(line[4]);
