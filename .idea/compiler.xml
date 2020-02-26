@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="BugetPlanner" />
         <module name="budgetplannerusecase-AlessandroLepre-PXL" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="budgetplannerusecase-AlessandroLepre-PXL" target="11" />
+      <module name="BugetPlanner" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
