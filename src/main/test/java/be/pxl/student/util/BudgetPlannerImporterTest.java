@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -45,28 +46,28 @@ class BudgetPlannerImporterTest {
     }
 
     @Test
-    public void createPaymentShouldHaveCorrectCurrency(){
+    public void createPaymentShouldHaveCorrectCurrency() throws ParseException {
         String[] splitLine = line.split(",");
         Payment payment = importer.createPayment(splitLine);
         assertEquals("EUR", payment.getCurrency());
     }
 
     @Test
-    public void createPaymentShouldHaveCorrectAmount(){
+    public void createPaymentShouldHaveCorrectAmount() throws ParseException {
         String[] splitLine = line.split(",");
         Payment payment = importer.createPayment(splitLine);
         assertEquals(3861.55, Math.round(payment.getAmount() * 100) / 100.0);
     }
 
     @Test
-    public void createAccountShouldHaveCorrectDetail(){
+    public void createAccountShouldHaveCorrectDetail() throws ParseException {
         String[] splitLine = line.split(",");
         Payment payment = importer.createPayment(splitLine);
         assertEquals("Perferendis id consectetur quis doloribus provident velit.", payment.getDetail());
     }
 
     @Test
-    public void createAccountShouldHaveCorrectDate(){
+    public void createAccountShouldHaveCorrectDate() throws ParseException {
         String[] splitLine = line.split(",");
         Payment payment = importer.createPayment(splitLine);
         date = LocalDateTime.parse("Tue Feb 18 18:26:54 CET 2020" , dateTimeFormatter);
